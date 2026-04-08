@@ -64,7 +64,7 @@ const AuthController = {
       return res.status(201).json({ message: 'Registration successful' });
     } catch (err) {
       console.error('Registration error:', err);
-      return res.status(500).json({ error: 'Registration failed. Please try again.' });
+      return res.status(500).json({ error: 'Registration failed: ' + err.message });
     }
   },
 
@@ -119,7 +119,7 @@ const AuthController = {
       });
     } catch (err) {
       console.error('Login error:', err);
-      return res.status(500).json({ error: 'Login failed. Please try again.' });
+      return res.status(500).json({ error: 'Login failed: ' + err.message });
     }
   },
 
