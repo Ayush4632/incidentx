@@ -14,7 +14,8 @@ async function setupDatabase() {
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     port: process.env.DB_PORT || 3306,
-    database: process.env.DB_NAME || 'incidentx'
+    database: process.env.DB_NAME || 'incidentx',
+    ssl: process.env.DB_HOST && process.env.DB_HOST !== 'localhost' ? { rejectUnauthorized: false } : undefined
   });
 
   console.log('🔌 Connected to MySQL Database:', process.env.DB_NAME || 'incidentx');
