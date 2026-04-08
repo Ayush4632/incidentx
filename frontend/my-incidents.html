@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View your reported cybersecurity incidents on IncidentX.">
+  <title>My Incidents — IncidentX</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" id="main-navbar"></nav>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header animate-fade-in-up">
+        <h1>📋 My Incidents</h1>
+        <p class="page-desc">Track the incidents you've reported</p>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loading" class="loading-overlay">
+        <div class="cyber-spinner"></div>
+      </div>
+
+      <!-- Table -->
+      <div id="table-container" class="glass-card-static d-none animate-fade-in-up">
+        <div class="table-responsive">
+          <table class="table table-cyber">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Severity</th>
+                <th>Reported Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="incidents-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state d-none">
+        <div class="empty-icon">📭</div>
+        <p class="empty-text">You haven't reported any incidents yet.</p>
+        <a href="/report.html" class="btn btn-cyber">Report one now →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/utils.js"></script>
+  <script src="/js/my-incidents.js"></script>
+</body>
+</html>
