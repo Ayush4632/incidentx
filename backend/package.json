@@ -4,7 +4,7 @@
   "description": "IncidentX - Cyber Threat Reporting and Analysis Tool Backend",
   "main": "server.js",
   "scripts": {
-    "start": "node setup-db.js && node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js",
     "setup-db": "node setup-db.js"
   },

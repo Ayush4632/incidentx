@@ -50,7 +50,7 @@ async function setupDatabase() {
       location      VARCHAR(255),
       created_at    DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at    DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-      FOREIGN KEY (userID) REFERENCES \`USER\`(userID) ON DELETE CASCADE,
+      CONSTRAINT fk_incx_user FOREIGN KEY (userID) REFERENCES \`USER\`(userID) ON DELETE CASCADE,
       INDEX idx_status (status),
       INDEX idx_type (incidentType),
       INDEX idx_severity (severity),
@@ -69,8 +69,8 @@ async function setupDatabase() {
       action           ENUM('VERIFY', 'REJECT', 'EDIT', 'DELETE') NOT NULL,
       comments         TEXT,
       verificationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (incidentID) REFERENCES INCIDENT(incidentID) ON DELETE CASCADE,
-      FOREIGN KEY (adminID) REFERENCES \`USER\`(userID) ON DELETE CASCADE,
+      CONSTRAINT fk_incx_verif_inc FOREIGN KEY (incidentID) REFERENCES INCIDENT(incidentID) ON DELETE CASCADE,
+      CONSTRAINT fk_incx_verif_adm FOREIGN KEY (adminID) REFERENCES \`USER\`(userID) ON DELETE CASCADE,
       INDEX idx_incident (incidentID),
       INDEX idx_admin (adminID)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
@@ -86,7 +86,7 @@ async function setupDatabase() {
       pattern          TEXT,
       recommendation   TEXT,
       analysisDate     DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (incidentID) REFERENCES INCIDENT(incidentID) ON DELETE CASCADE,
+      CONSTRAINT fk_incx_ta_inc FOREIGN KEY (incidentID) REFERENCES INCIDENT(incidentID) ON DELETE CASCADE,
       INDEX idx_ta_incident (incidentID)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
   `);
