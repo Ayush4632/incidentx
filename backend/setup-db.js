@@ -13,15 +13,11 @@ async function setupDatabase() {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
-    port: process.env.DB_PORT || 3306
+    port: process.env.DB_PORT || 3306,
+    database: process.env.DB_NAME || 'incidentx'
   });
 
-  console.log('🔌 Connected to MySQL');
-
-  // Create database
-  await conn.query('CREATE DATABASE IF NOT EXISTS incidentx');
-  await conn.query('USE incidentx');
-  console.log('📦 Database "incidentx" ready');
+  console.log('🔌 Connected to MySQL Database:', process.env.DB_NAME || 'incidentx');
 
   // Create USER table
   await conn.query(`
